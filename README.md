@@ -20,8 +20,8 @@ and *executable interfaces* for agent frameworks, allowing
 
 ```webidl
 [[
-  Context = "https://s-agent-comm.github.io/ontology/context/agent.jsonld",
-  Semantic = "https://s-agent-comm.github.io/ontology/ontologies/intent.ttl"
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
 ]]
 interface AgentTask {
   [Intent="agent:ProposeContract"]
