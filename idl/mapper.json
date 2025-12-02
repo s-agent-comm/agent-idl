@@ -1,0 +1,5 @@
+{
+  "Intent": "https://s-agent-comm.github.io/ontology/ontologies/intent.ttl#Intent",
+  "Proof": "https://s-agent-comm.github.io/ontology/ontologies/ledger.ttl#Proof",
+  "Capability": "https://s-agent-comm.github.io/ontology/ontologies/capability.ttl#Capability"
+}

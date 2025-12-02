@@ -1,0 +1,27 @@
+{
+  "name": "agent-idl",
+  "version": "1.0.0",
+  "description": "AgentIDL: A bridge between semantic and execution for agents",
+  "main": "dist/sdk/agent-sdk.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "agent",
+    "idl",
+    "webidl",
+    "semantic",
+    "ontology"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "webidl2": "^24.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/webidl2": "^24.4.3",
+    "typescript": "^5.0.0"
+  }
+}
