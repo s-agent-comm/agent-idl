@@ -1,0 +1,14 @@
+{
+  "id": "urn:delegation:revoked:001",
+  "issuer": "did:example:issuer",
+  "subject": "did:example:agent-b",
+  "capability": "agent:PerformTask",
+  "proof": {
+    "type": "VerifiableCredential",
+    "jwt": "eyJhbGciOiJFZERTQSJ9"
+  },
+  "issuedAt": "2026-01-01T00:00:00Z",
+  "expiresAt": "2027-01-01T00:00:00Z",
+  "revoked": true,
+  "revokedAt": "2026-02-05T00:00:00Z"
+}

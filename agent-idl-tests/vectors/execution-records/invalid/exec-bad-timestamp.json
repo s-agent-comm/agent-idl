@@ -1,0 +1,14 @@
+{
+  "taskId": "task-005",
+  "agent": "did:example:agent-f",
+  "intent": "agent:RunJob",
+  "timestamp": "not-a-date",
+  "result": {
+    "status": "ok"
+  },
+  "attestation": {
+    "type": "ExecutionAttestation",
+    "proof": "0x123",
+    "issuedAt": "2026-02-10T03:00:10Z"
+  }
+}

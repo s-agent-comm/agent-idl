@@ -1,0 +1,7 @@
+{
+  "name": "cross-implementation-audit",
+  "executionRecord": "../../vectors/execution-records/valid/exec-basic.json",
+  "expected": {
+    "valid": true
+  }
+}

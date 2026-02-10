@@ -1,0 +1,25 @@
+{
+  "taskId": "task-002",
+  "agent": "did:example:agent-c",
+  "intent": "agent:RunJob",
+  "timestamp": "2026-02-10T01:00:00Z",
+  "result": {
+    "status": "ok",
+    "details": "Job executed"
+  },
+  "attestation": {
+    "type": "ExecutionAttestation",
+    "proof": "0xdef456",
+    "issuedAt": "2026-02-10T01:00:10Z"
+  },
+  "auditTrail": [
+    {
+      "step": "dispatch",
+      "timestamp": "2026-02-10T01:00:01Z"
+    },
+    {
+      "step": "complete",
+      "timestamp": "2026-02-10T01:00:09Z"
+    }
+  ]
+}

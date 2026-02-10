@@ -1,0 +1,7 @@
+[[
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
+]]
+interface MissingContext {
+  [Intent="agent:DoThing"]
+  Promise<Result> doThing(Thing thing);
+};

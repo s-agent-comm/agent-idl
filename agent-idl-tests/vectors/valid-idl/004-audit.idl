@@ -1,0 +1,8 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/audit.ttl"
+]]
+interface AuditOps {
+  [Intent="agent:RunJob", Audit="agent:ExecutionRecord"]
+  Promise<JobResult> runJob(JobSpec spec);
+};

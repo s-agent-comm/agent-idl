@@ -1,0 +1,6 @@
+{
+  "requiredOperationAttr": "Delegation",
+  "requiredDelegationFields": ["id", "issuer", "subject", "capability", "proof", "issuedAt", "expiresAt"],
+  "proofType": "VerifiableCredential",
+  "revocationFields": ["revoked", "revokedAt", "revocationList"]
+}

@@ -46,6 +46,24 @@ Semantically, it combines:
 
 This creates an agent-level **Application Behavior Interface (ABI)**.
 
+## Conformance Tests
+
+The repository includes a self-contained conformance test suite under `agent-idl-tests/`.
+
+**Local run**
+
+```bash
+npm run test:conformance
+```
+
+**CI**
+
+GitHub Actions runs the conformance suite on pushes and pull requests via:
+
+```
+.github/workflows/agent-idl-conformance.yml
+```
+
 ### Comparison
 
 | | **Semantic Definition (Ontology)** | **Execution Interface (Interface)** |

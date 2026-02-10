@@ -1,0 +1,8 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
+]]
+interface ProofOps {
+  [Intent="agent:SignData", Proof="did:proof"]
+  Promise<Signature> signData(SignatureRequest req);
+};

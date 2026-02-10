@@ -1,0 +1,6 @@
+{
+  "allowedExtAttrs": ["Context", "Semantic", "Intent", "Proof", "Capability", "Delegation", "Audit"],
+  "requiredInterfaceAttrs": ["Context", "Semantic"],
+  "requiredOperationAttrs": ["Intent"],
+  "delegationParamType": "DelegationContext"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "revocation",
+  "idl": "../../reference-impl/examples/delegation.idl",
+  "method": "performTask",
+  "delegationContext": "../../vectors/delegation-contexts/invalid/ctx-revoked.json",
+  "payload": {
+    "task": "export report",
+    "priority": "high"
+  },
+  "expected": {
+    "status": "revoked"
+  }
+}

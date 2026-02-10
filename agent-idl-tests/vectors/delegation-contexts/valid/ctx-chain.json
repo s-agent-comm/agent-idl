@@ -1,0 +1,24 @@
+{
+  "id": "urn:delegation:chain:001",
+  "issuer": "did:example:principal",
+  "subject": "did:example:agent-a",
+  "capability": "agent:Approve",
+  "proof": {
+    "type": "VerifiableCredential",
+    "jwt": "eyJhbGciOiJFZERTQSJ9"
+  },
+  "issuedAt": "2026-01-10T00:00:00Z",
+  "expiresAt": "2026-12-31T00:00:00Z",
+  "delegationChain": [
+    {
+      "issuer": "did:example:principal",
+      "subject": "did:example:agent-a",
+      "capability": "agent:Approve"
+    },
+    {
+      "issuer": "did:example:agent-a",
+      "subject": "did:example:agent-b",
+      "capability": "agent:Approve"
+    }
+  ]
+}

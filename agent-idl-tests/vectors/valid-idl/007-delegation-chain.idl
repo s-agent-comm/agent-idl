@@ -1,0 +1,11 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
+]]
+interface DelegationChain {
+  [Intent="agent:Approve", Delegation="agent:DelegationContext"]
+  Promise<Approval> approve(DelegationContext ctx, ApprovalRequest request);
+
+  [Intent="agent:Revoke", Delegation="agent:DelegationContext"]
+  Promise<RevocationResult> revoke(DelegationContext ctx, RevocationRequest request);
+};

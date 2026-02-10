@@ -1,0 +1,8 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/capability.ttl"
+]]
+interface CapabilityTask {
+  [Intent="agent:ReadData", Capability="agent:Read"]
+  Promise<DataBlob> readData(DataRequest req);
+};

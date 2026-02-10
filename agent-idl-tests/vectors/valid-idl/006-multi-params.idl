@@ -1,0 +1,8 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
+]]
+interface MultiParams {
+  [Intent="agent:StoreRecord", Proof="ledger:tx"]
+  Promise<StoreReceipt> storeRecord(DataRecord data, StoragePolicy policy, boolean dryRun);
+};

@@ -1,0 +1,13 @@
+{
+  "name": "basic-delegation",
+  "idl": "../../reference-impl/examples/delegation.idl",
+  "method": "performTask",
+  "delegationContext": "../../vectors/delegation-contexts/valid/ctx-basic.json",
+  "payload": {
+    "task": "analyze usage logs",
+    "priority": "normal"
+  },
+  "expected": {
+    "status": "ok"
+  }
+}

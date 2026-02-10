@@ -1,0 +1,7 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld"
+]]
+interface MissingSemantic {
+  [Intent="agent:DoThing"]
+  Promise<Result> doThing(Thing thing);
+};

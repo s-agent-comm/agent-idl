@@ -1,0 +1,5 @@
+{
+  "requiredExecutionFields": ["taskId", "agent", "intent", "timestamp", "result", "attestation"],
+  "attestationFields": ["type", "proof", "issuedAt"],
+  "attestationType": "ExecutionAttestation"
+}

@@ -1,0 +1,15 @@
+{
+  "taskId": "task-001",
+  "agent": "did:example:agent-b",
+  "intent": "agent:PerformTask",
+  "timestamp": "2026-02-10T00:00:00Z",
+  "result": {
+    "status": "ok",
+    "details": "Task completed"
+  },
+  "attestation": {
+    "type": "ExecutionAttestation",
+    "proof": "0xabc123",
+    "issuedAt": "2026-02-10T00:00:10Z"
+  }
+}

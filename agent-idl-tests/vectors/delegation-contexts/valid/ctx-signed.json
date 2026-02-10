@@ -1,0 +1,14 @@
+{
+  "id": "urn:delegation:signed:001",
+  "issuer": "did:example:issuer",
+  "subject": "did:example:agent-c",
+  "capability": "agent:ReadData",
+  "proof": {
+    "type": "VerifiableCredential",
+    "jwt": "eyJhbGciOiJFZERTQSJ9",
+    "signature": "0xdeadbeef"
+  },
+  "issuedAt": "2026-02-05T12:00:00Z",
+  "expiresAt": "2027-02-05T12:00:00Z",
+  "revocationList": "urn:revocation:list:001"
+}

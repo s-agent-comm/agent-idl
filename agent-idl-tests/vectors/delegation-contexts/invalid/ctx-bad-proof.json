@@ -1,0 +1,12 @@
+{
+  "id": "urn:delegation:bad:002",
+  "issuer": "did:example:issuer",
+  "subject": "did:example:agent-b",
+  "capability": "agent:PerformTask",
+  "proof": {
+    "type": "UnknownProof",
+    "jwt": "eyJhbGciOiJFZERTQSJ9"
+  },
+  "issuedAt": "2026-02-01T00:00:00Z",
+  "expiresAt": "2027-02-01T00:00:00Z"
+}

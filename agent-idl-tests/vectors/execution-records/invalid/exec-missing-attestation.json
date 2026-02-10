@@ -1,0 +1,9 @@
+{
+  "taskId": "task-004",
+  "agent": "did:example:agent-e",
+  "intent": "agent:PerformTask",
+  "timestamp": "2026-02-10T03:00:00Z",
+  "result": {
+    "status": "ok"
+  }
+}
