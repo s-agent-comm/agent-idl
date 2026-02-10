@@ -1,0 +1,33 @@
+{
+  "@context": [
+    "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+    {
+      "Intent": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
+      "Proof": "https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#Proof",
+      "Capability": "https://s-agent-comm.github.io/agent-ontology/ontologies/capability.ttl#Capability"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "agent:AgentTask",
+      "@type": "owl:Class",
+      "rdfs:label": "AgentTask",
+      "rdfs:comment": "AgentIDL interface"
+    },
+    {
+      "@id": "agent:ProposeContract",
+      "@type": "agent:Intent",
+      "rdfs:label": "proposeContract",
+      "Intent": "agent:ProposeContract",
+      "agent:interface": "agent:AgentTask"
+    },
+    {
+      "@id": "agent:ExecutePayment",
+      "@type": "agent:Intent",
+      "rdfs:label": "executePayment",
+      "Intent": "agent:ExecutePayment",
+      "Proof": "ledger:tx",
+      "agent:interface": "agent:AgentTask"
+    }
+  ]
+}

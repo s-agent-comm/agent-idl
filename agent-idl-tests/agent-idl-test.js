@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const webidl = require("webidl2");
-const { AgentRuntime, loadAgentInterface } = require("../sdk/agent-sdk");
+const { AgentRuntime, loadAgentInterface, createRuntimeTransport } = require("../sdk/agent-sdk");
 
 const ROOT = __dirname;
 
@@ -282,6 +282,38 @@ async function runScenario(filePath) {
       name: `scenario:${scenario.name}`,
       ok,
       error: ok ? null : errors.join("; "),
+    });
+    return results;
+  }
+
+  if (scenario.name === "interop-js-runtime") {
+    const idlPath = path.join(path.dirname(filePath), scenario.idl);
+    const interfaceDef = loadAgentInterface(idlPath);
+    const caller = new AgentRuntime({ id: "agent:A", interfaceDef });
+    const executor = new AgentRuntime({ id: "agent:B", interfaceDef });
+    const modulePath = path.join(path.dirname(filePath), scenario.generatedModule);
+    const { createClient, registerHandlers } = require(modulePath);
+
+    registerHandlers(executor, {
+      proposeContract: data => ({
+        status: "accepted",
+        contractId: "TEST-1",
+        counterparty: Array.isArray(data.parties) ? data.parties[0] : null,
+      }),
+      executePayment: payment => ({
+        status: "paid",
+        amount: payment.amount || 0,
+      }),
+    });
+
+    const transport = createRuntimeTransport({ caller, target: executor });
+    const client = createClient(transport);
+    const result = await client[scenario.method](scenario.payload);
+    const ok = result.status === scenario.expected.status;
+    results.push({
+      name: `scenario:${scenario.name}`,
+      ok,
+      error: ok ? null : `Expected status ${scenario.expected.status} but got ${result.status}`,
     });
     return results;
   }

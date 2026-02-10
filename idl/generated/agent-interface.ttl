@@ -1,0 +1,11 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agent: <https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#> .
+@prefix intent: <https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#> .
+@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#> .
+
+agent:AgentTask a owl:Class ; rdfs:label "AgentTask" .
+
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ProposeContract> a intent:Intent ; rdfs:label "proposeContract" .
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ExecutePayment> a intent:Intent ; rdfs:label "executePayment" .
+<https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#tx> rdfs:label "executePayment-proof" .

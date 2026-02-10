@@ -13,6 +13,7 @@
   },
   "include": [
     "compiler/**/*.ts",
+    "sdk/**/*.ts",
     "idl/mapper.json"
   ]
 }

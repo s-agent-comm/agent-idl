@@ -1,0 +1,16 @@
+{
+  "name": "interop-js-runtime",
+  "idl": "../../../idl/agent.idl",
+  "generatedModule": "../../../sdk/generated/agenttask.js",
+  "method": "proposeContract",
+  "payload": {
+    "parties": ["agent:A", "agent:B"],
+    "terms": "deliver dataset",
+    "price": 1200,
+    "currency": "USD",
+    "dueDate": "2026-03-01"
+  },
+  "expected": {
+    "status": "accepted"
+  }
+}

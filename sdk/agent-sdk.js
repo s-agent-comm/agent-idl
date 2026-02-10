@@ -116,7 +116,23 @@ class AgentRuntime {
   }
 }
 
+function createAgentClient({ runtime, target }) {
+  const client = {};
+  Object.keys(runtime.interfaceDef.methods).forEach(methodName => {
+    client[methodName] = (...args) => runtime.callMethod(target, methodName, ...args);
+  });
+  return client;
+}
+
+function createRuntimeTransport({ caller, target }) {
+  return {
+    send: ({ intent, payload, proof }) => caller.invokeIntent(target, intent, payload, proof),
+  };
+}
+
 module.exports = {
   loadAgentInterface,
   AgentRuntime,
+  createAgentClient,
+  createRuntimeTransport,
 };
