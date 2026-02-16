@@ -5,10 +5,10 @@ import mapper from "../idl/mapper.json";
 
 type IdlType = webidl.IDLTypeDescription | webidl.IDLTypeDescription[] | string | null;
 
-const IDL_PATH = path.join("idl", "agent.idl");
-const OUT_DIR = path.join("sdk", "generated");
-const JSONLD_OUT = path.join("idl", "generated", "agent-interface.jsonld");
-const TTL_OUT = path.join("idl", "generated", "agent-interface.ttl");
+const DEFAULT_IDL_PATH = path.join("idl", "agent.idl");
+const DEFAULT_OUT_DIR = path.join("sdk", "generated");
+const DEFAULT_JSONLD_OUT = path.join("idl", "generated", "agent-interface.jsonld");
+const DEFAULT_TTL_OUT = path.join("idl", "generated", "agent-interface.ttl");
 
 const DEFAULT_PREFIXES: Record<string, string> = {
   agent: "https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#",
@@ -130,8 +130,23 @@ function collectCustomTypes(types: Set<string>, idlType: IdlType): void {
   }
 }
 
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const getArg = (flag: string) => {
+    const idx = args.indexOf(flag);
+    return idx >= 0 ? args[idx + 1] : null;
+  };
+  return {
+    idlPath: getArg("--idl") || DEFAULT_IDL_PATH,
+    outDir: getArg("--out") || DEFAULT_OUT_DIR,
+    jsonldOut: getArg("--jsonld") || DEFAULT_JSONLD_OUT,
+    ttlOut: getArg("--ttl") || DEFAULT_TTL_OUT,
+  };
+}
+
 function generate() {
-  const raw = fs.readFileSync(IDL_PATH, "utf8");
+  const { idlPath, outDir, jsonldOut, ttlOut } = parseArgs();
+  const raw = fs.readFileSync(idlPath, "utf8");
   const normalized = normalizeExtendedAttributes(raw);
   const ast = webidl.parse(normalized);
   const iface = ast.find(def => def.type === "interface") as webidl.InterfaceType | undefined;
@@ -251,6 +266,30 @@ function generate() {
   jsLines.push("");
   jsLines.push("module.exports = { intents, createClient, registerHandlers };");
 
+  const esmLines: string[] = [];
+  esmLines.push("export const intents = {");
+  methodMeta.forEach(method => {
+    esmLines.push(`  ${method.name}: { intent: "${method.intent}", proof: ${method.proof ? `"${method.proof}"` : "null"} },`);
+  });
+  esmLines.push("};");
+  esmLines.push("");
+  esmLines.push("export function createClient(transport) {");
+  esmLines.push("  return {");
+  methodMeta.forEach(method => {
+    const paramNames = method.params.map(param => param.name).join(", ");
+    const payload = method.params.map(param => `${param.name}: ${param.name}`).join(", ");
+    esmLines.push(`    ${method.name}: (${paramNames}) => transport.send({ intent: intents.${method.name}.intent, proof: intents.${method.name}.proof, payload: { ${payload} } }),`);
+  });
+  esmLines.push("  };");
+  esmLines.push("}");
+  esmLines.push("");
+  esmLines.push("export function registerHandlers(runtime, handlers) {");
+  methodMeta.forEach(method => {
+    const paramNames = method.params.map(param => `message.payload.${param.name}`).join(", ");
+    esmLines.push(`  runtime.registerIntent(intents.${method.name}.intent, async message => handlers.${method.name}(${paramNames}, message));`);
+  });
+  esmLines.push("}");
+
   const contextEntries = contextUrl ? [contextUrl, mapper] : [mapper];
   const jsonld: any = {
     "@context": contextEntries,
@@ -267,7 +306,7 @@ function generate() {
   methodMeta.forEach(method => {
     jsonld["@graph"].push({
       "@id": method.intent || `${iface.name}.${method.name}`,
-      "@type": "agent:Intent",
+      "@type": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
       "rdfs:label": method.name,
       "Intent": method.intent || undefined,
       "Proof": method.proof || undefined,
@@ -289,20 +328,24 @@ function generate() {
     const intentIri = method.intent ? expandCurie(method.intent) : null;
     const proofIri = method.proof ? expandCurie(method.proof) : null;
     if (intentIri) {
-      ttlLines.push(`<${intentIri}> a intent:Intent ; rdfs:label "${method.name}" .`);
+      ttlLines.push(`<${intentIri}> a intent:Intent ; rdfs:label "${method.name}" ; agent:interface agent:${iface.name} .`);
     }
     if (proofIri) {
+      if (intentIri) {
+        ttlLines.push(`<${intentIri}> ledger:Proof <${proofIri}> .`);
+      }
       ttlLines.push(`<${proofIri}> rdfs:label "${method.name}-proof" .`);
     }
   });
 
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-  fs.mkdirSync(path.dirname(JSONLD_OUT), { recursive: true });
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.mkdirSync(path.dirname(jsonldOut), { recursive: true });
 
-  fs.writeFileSync(path.join(OUT_DIR, `${iface.name.toLowerCase()}.ts`), tsLines.join("\n"));
-  fs.writeFileSync(path.join(OUT_DIR, `${iface.name.toLowerCase()}.js`), jsLines.join("\n"));
-  fs.writeFileSync(JSONLD_OUT, JSON.stringify(jsonld, null, 2));
-  fs.writeFileSync(TTL_OUT, ttlLines.join("\n"));
+  fs.writeFileSync(path.join(outDir, `${iface.name.toLowerCase()}.ts`), tsLines.join("\n"));
+  fs.writeFileSync(path.join(outDir, `${iface.name.toLowerCase()}.js`), jsLines.join("\n"));
+  fs.writeFileSync(path.join(outDir, `${iface.name.toLowerCase()}.mjs`), esmLines.join("\n"));
+  fs.writeFileSync(jsonldOut, JSON.stringify(jsonld, null, 2));
+  fs.writeFileSync(ttlOut, ttlLines.join("\n"));
 
   console.log("✅ Generated SDK + JSON-LD/TTL outputs");
 }

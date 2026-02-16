@@ -6,6 +6,7 @@
 
 agent:AgentTask a owl:Class ; rdfs:label "AgentTask" .
 
-<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ProposeContract> a intent:Intent ; rdfs:label "proposeContract" .
-<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ExecutePayment> a intent:Intent ; rdfs:label "executePayment" .
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ProposeContract> a intent:Intent ; rdfs:label "proposeContract" ; agent:interface agent:AgentTask .
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ExecutePayment> a intent:Intent ; rdfs:label "executePayment" ; agent:interface agent:AgentTask .
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#ExecutePayment> ledger:Proof <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#tx> .
 <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#tx> rdfs:label "executePayment-proof" .

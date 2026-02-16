@@ -1,0 +1,10 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agent: <https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#> .
+@prefix intent: <https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#> .
+@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#> .
+
+agent:BrowserAI a owl:Class ; rdfs:label "BrowserAI" .
+
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#SummarizeText> a intent:Intent ; rdfs:label "summarizeText" ; agent:interface agent:BrowserAI .
+<https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#TranslateText> a intent:Intent ; rdfs:label "translateText" ; agent:interface agent:BrowserAI .

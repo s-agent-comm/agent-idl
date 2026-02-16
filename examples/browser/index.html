@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AgentIDL Browser Demo</title>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; margin: 32px; }
+      button { margin-right: 12px; }
+      pre { background: #f6f8fa; padding: 12px; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <h1>AgentIDL Browser Demo</h1>
+    <p>WebSocket target: <code>ws://localhost:8787</code></p>
+    <div>
+      <button id="propose">Propose Contract</button>
+      <button id="pay">Execute Payment</button>
+    </div>
+    <h3>Output</h3>
+    <pre id="output"></pre>
+
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>

@@ -9,25 +9,24 @@
   ],
   "@graph": [
     {
-      "@id": "agent:AgentTask",
+      "@id": "agent:BrowserAI",
       "@type": "owl:Class",
-      "rdfs:label": "AgentTask",
+      "rdfs:label": "BrowserAI",
       "rdfs:comment": "AgentIDL interface"
     },
     {
-      "@id": "agent:ProposeContract",
+      "@id": "agent:SummarizeText",
       "@type": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
-      "rdfs:label": "proposeContract",
-      "Intent": "agent:ProposeContract",
-      "agent:interface": "agent:AgentTask"
+      "rdfs:label": "summarizeText",
+      "Intent": "agent:SummarizeText",
+      "agent:interface": "agent:BrowserAI"
     },
     {
-      "@id": "agent:ExecutePayment",
+      "@id": "agent:TranslateText",
       "@type": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
-      "rdfs:label": "executePayment",
-      "Intent": "agent:ExecutePayment",
-      "Proof": "ledger:tx",
-      "agent:interface": "agent:AgentTask"
+      "rdfs:label": "translateText",
+      "Intent": "agent:TranslateText",
+      "agent:interface": "agent:BrowserAI"
     }
   ]
 }

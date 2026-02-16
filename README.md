@@ -64,6 +64,55 @@ GitHub Actions runs the conformance suite on pushes and pull requests via:
 .github/workflows/agent-idl-conformance.yml
 ```
 
+## SHACL Validation
+
+Generate JSON-LD/TTL from the IDL, then validate with SHACL tools.
+
+```bash
+npm run build
+npm run generate:agenttask
+```
+
+**Example (pyshacl)**
+
+```bash
+python -m pip install pyshacl rdflib
+python -m pyshacl -s shacl/agenttask-shapes.ttl -d idl/generated/agent-interface.ttl
+```
+
+## Browser Demo (WebSocket)
+
+This demo uses a WebSocket transport between a browser client and a Node.js agent server.
+
+```bash
+npm run build
+npm run generate:agenttask
+node examples/browser/server.js
+```
+
+Serve the repo root (for example):
+
+```bash
+python3 -m http.server 8080
+```
+
+Open: `http://localhost:8080/examples/browser/`
+
+## Browser AI Bridge (Chrome Built-in)
+
+This uses Chrome's built-in AI APIs in a browser tab and bridges results to Node.js over WebSocket.
+
+```bash
+npm run build
+npm run generate:browserai
+node examples/browser/bridge-server.js
+python3 -m http.server 8080
+```
+
+Open: `http://localhost:8080/examples/browser/bridge.html`  
+Click **Enable AI** to initialize the built-in API, then watch the Node server log for summaries.
+Requires Chrome with built-in AI APIs available.
+
 ### Comparison
 
 | | **Semantic Definition (Ontology)** | **Execution Interface (Interface)** |

@@ -1,0 +1,11 @@
+[[
+  Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
+]]
+interface BrowserAI {
+  [Intent="agent:SummarizeText"]
+  Promise<SummaryResult> summarizeText(SummaryRequest request);
+
+  [Intent="agent:TranslateText"]
+  Promise<TranslationResult> translateText(TranslationRequest request);
+};

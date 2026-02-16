@@ -1,0 +1,35 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix agent: <https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#> .
+@prefix intent: <https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#> .
+@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#> .
+
+agent:AgentTaskShape a sh:NodeShape ;
+  sh:targetClass agent:AgentTask ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+  ] .
+
+agent:IntentShape a sh:NodeShape ;
+  sh:targetClass intent:Intent ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path agent:interface ;
+    sh:minCount 1 ;
+  ] .
+
+agent:ProofShape a sh:NodeShape ;
+  sh:targetObjectsOf ledger:Proof ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+  ] .

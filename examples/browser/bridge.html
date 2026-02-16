@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chrome AI Bridge</title>
+    <style>
+      body { font-family: system-ui, -apple-system, sans-serif; margin: 32px; }
+      button { margin-right: 12px; }
+      pre { background: #f6f8fa; padding: 12px; border-radius: 6px; }
+      .status { margin-top: 8px; color: #444; }
+    </style>
+  </head>
+  <body>
+    <h1>Chrome Built-in AI Bridge</h1>
+    <p>Connects to <code>ws://localhost:8790</code> and serves AI requests.</p>
+    <div>
+      <button id="enable">Enable AI</button>
+      <span class="status" id="status">Not ready</span>
+    </div>
+    <pre id="log"></pre>
+
+    <script type="module" src="./bridge.mjs"></script>
+  </body>
+</html>
