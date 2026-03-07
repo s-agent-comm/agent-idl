@@ -4,6 +4,9 @@
 @prefix intent: <https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#> .
 @prefix ledger: <https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#> .
 
+# This ontology references the Unified Ontic Ontology
+# DOI: https://doi.org/10.6084/m9.figshare.30760739
+
 agent:BrowserAI a owl:Class ; rdfs:label "BrowserAI" .
 
 <https://s-agent-comm.github.io/agent-ontology/latest/agent.ttl#SummarizeText> a intent:Intent ; rdfs:label "summarizeText" ; agent:interface agent:BrowserAI .
