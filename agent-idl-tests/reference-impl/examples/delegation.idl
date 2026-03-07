@@ -1,6 +1,6 @@
 [[
   Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
-  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/delegation.ttl"
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/latest/delegation.ttl"
 ]]
 interface DelegationTasks {
   [Intent="agent:PerformTask", Delegation="agent:DelegationContext"]

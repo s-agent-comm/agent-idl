@@ -11,10 +11,10 @@ const DEFAULT_JSONLD_OUT = path.join("idl", "generated", "agent-interface.jsonld
 const DEFAULT_TTL_OUT = path.join("idl", "generated", "agent-interface.ttl");
 
 const DEFAULT_PREFIXES: Record<string, string> = {
-  agent: "https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#",
-  intent: "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#",
-  ledger: "https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#",
-  capability: "https://s-agent-comm.github.io/agent-ontology/ontologies/capability.ttl#",
+  agent: "https://s-agent-comm.github.io/agent-ontology/latest/agent.ttl#",
+  intent: "https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#",
+  ledger: "https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#",
+  capability: "https://s-agent-comm.github.io/agent-ontology/latest/capability.ttl#",
 };
 
 function normalizeExtendedAttributes(idlSource: string): string {
@@ -306,7 +306,7 @@ function generate() {
   methodMeta.forEach(method => {
     jsonld["@graph"].push({
       "@id": method.intent || `${iface.name}.${method.name}`,
-      "@type": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
+      "@type": "https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#Intent",
       "rdfs:label": method.name,
       "Intent": method.intent || undefined,
       "Proof": method.proof || undefined,
@@ -317,9 +317,12 @@ function generate() {
   const ttlLines: string[] = [];
   ttlLines.push("@prefix owl: <http://www.w3.org/2002/07/owl#> .");
   ttlLines.push("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .");
-  ttlLines.push("@prefix agent: <https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#> .");
-  ttlLines.push("@prefix intent: <https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#> .");
-  ttlLines.push("@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#> .");
+  ttlLines.push("@prefix agent: <https://s-agent-comm.github.io/agent-ontology/latest/agent.ttl#> .");
+  ttlLines.push("@prefix intent: <https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#> .");
+  ttlLines.push("@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#> .");
+  ttlLines.push("");
+  ttlLines.push("# This ontology references the Unified Ontic Ontology");
+  ttlLines.push("# DOI: https://doi.org/10.6084/m9.figshare.30760739");
   ttlLines.push("");
   ttlLines.push(`agent:${iface.name} a owl:Class ; rdfs:label "${iface.name}" .`);
   ttlLines.push("");

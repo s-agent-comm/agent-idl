@@ -2,9 +2,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix agent: <https://s-agent-comm.github.io/agent-ontology/ontologies/agent.ttl#> .
-@prefix intent: <https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#> .
-@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#> .
+@prefix agent: <https://s-agent-comm.github.io/agent-ontology/latest/agent.ttl#> .
+@prefix intent: <https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#> .
+@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#> .
 
 agent:AgentTaskShape a sh:NodeShape ;
   sh:targetClass agent:AgentTask ;

@@ -2,9 +2,9 @@
   "@context": [
     "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
     {
-      "Intent": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
-      "Proof": "https://s-agent-comm.github.io/agent-ontology/ontologies/ledger.ttl#Proof",
-      "Capability": "https://s-agent-comm.github.io/agent-ontology/ontologies/capability.ttl#Capability"
+      "Intent": "https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#Intent",
+      "Proof": "https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#Proof",
+      "Capability": "https://s-agent-comm.github.io/agent-ontology/latest/capability.ttl#Capability"
     }
   ],
   "@graph": [
@@ -16,14 +16,14 @@
     },
     {
       "@id": "agent:ProposeContract",
-      "@type": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
+      "@type": "https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#Intent",
       "rdfs:label": "proposeContract",
       "Intent": "agent:ProposeContract",
       "agent:interface": "agent:AgentTask"
     },
     {
       "@id": "agent:ExecutePayment",
-      "@type": "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl#Intent",
+      "@type": "https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#Intent",
       "rdfs:label": "executePayment",
       "Intent": "agent:ExecutePayment",
       "Proof": "ledger:tx",

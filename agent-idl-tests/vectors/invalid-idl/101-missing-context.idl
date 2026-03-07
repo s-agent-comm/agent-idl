@@ -1,5 +1,5 @@
 [[
-  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/intent.ttl"
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl"
 ]]
 interface MissingContext {
   [Intent="agent:DoThing"]

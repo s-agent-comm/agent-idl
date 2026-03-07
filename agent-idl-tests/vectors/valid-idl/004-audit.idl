@@ -1,6 +1,6 @@
 [[
   Context = "https://s-agent-comm.github.io/agent-ontology/context/agent.jsonld",
-  Semantic = "https://s-agent-comm.github.io/agent-ontology/ontologies/audit.ttl"
+  Semantic = "https://s-agent-comm.github.io/agent-ontology/latest/audit.ttl"
 ]]
 interface AuditOps {
   [Intent="agent:RunJob", Audit="agent:ExecutionRecord"]
