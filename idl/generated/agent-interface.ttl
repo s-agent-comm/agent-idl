@@ -4,9 +4,6 @@
 @prefix intent: <https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#> .
 @prefix ledger: <https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#> .
 
-# This ontology references the Unified Ontic Ontology
-# DOI: https://doi.org/10.6084/m9.figshare.30760739
-
 agent:AgentTask a owl:Class ; rdfs:label "AgentTask" .
 
 <https://s-agent-comm.github.io/agent-ontology/latest/agent.ttl#ProposeContract> a intent:Intent ; rdfs:label "proposeContract" ; agent:interface agent:AgentTask .

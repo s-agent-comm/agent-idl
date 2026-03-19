@@ -321,9 +321,6 @@ function generate() {
   ttlLines.push("@prefix intent: <https://s-agent-comm.github.io/agent-ontology/latest/intent.ttl#> .");
   ttlLines.push("@prefix ledger: <https://s-agent-comm.github.io/agent-ontology/latest/ledger.ttl#> .");
   ttlLines.push("");
-  ttlLines.push("# This ontology references the Unified Ontic Ontology");
-  ttlLines.push("# DOI: https://doi.org/10.6084/m9.figshare.30760739");
-  ttlLines.push("");
   ttlLines.push(`agent:${iface.name} a owl:Class ; rdfs:label "${iface.name}" .`);
   ttlLines.push("");
 

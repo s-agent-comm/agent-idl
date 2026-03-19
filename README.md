@@ -123,6 +123,3 @@ Requires Chrome with built-in AI APIs available.
 | **Publication**| gh-pages + w3id | npm + gh-pages (docs) |
 | **Boundary** | Semantic correctness, conceptual consistency | Behavioral consistency, semantic mapping |
 | **Coupling** | `ontology v1.0` | `idl v1.0` → imports `ontology v1.0` |
-
-This work acknowledges alignment discussions with the Unified Ontic Ontology  
-(DOI: 10.6084/m9.figshare.30760739).
