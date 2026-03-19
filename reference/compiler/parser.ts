@@ -5,7 +5,7 @@ import mapper from "../../idl/mapper.json";
 const src = fs.readFileSync("idl/agent.idl", "utf8");
 const ast = webidl.parse(src);
 
-// 將擴充屬性轉換為 JSON-LD 定義
+// Convert extended attributes to JSON-LD output
 const jsonld: any = { " @context": {}, " @graph": [] };
 ast.forEach(def => {
   if (def.type === "interface") {
@@ -19,7 +19,7 @@ ast.forEach(def => {
   }
 });
 
-// 轉換 attribute → ontology URI
+// Map attribute names to IRIs via mapper.json
 Object.entries(mapper).forEach(([k, v]) => (jsonld[" @context"][k] = v));
 
 fs.mkdirSync("idl/generated", { recursive: true });

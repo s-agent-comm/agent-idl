@@ -1,18 +1,17 @@
 # AgentIDL
 
 **AgentIDL** is an open specification extending [W3C WebIDL](https://www.w3.org/TR/WebIDL/)
-to describe **semantic agents** — autonomous computational entities with verifiable identities,
-capabilities, intents, and delegations.
+to define **agent interfaces** — typed method signatures with intent annotations,
+proof requirements, capability constraints, and delegation rules.
 
-It provides a bridge between *ontological definitions* (RDF/OWL/JSON-LD)
-and *executable interfaces* for agent frameworks, allowing
-**semantic interoperability** across AI systems and protocols.
+It generates machine-readable bindings (JSON-LD / TTL) from annotated WebIDL,
+enabling interoperability across AI agent frameworks and protocols.
 
 ## Why AgentIDL
 
-- Adds semantic annotations (`[Intent]`, `[Proof]`, `[Capability]`, `[Context]`)
+- Adds structured annotations (`[Intent]`, `[Proof]`, `[Capability]`, `[Context]`)
   to standard WebIDL interface definitions.
-- Generates machine-readable bindings (JSON-LD / TTL) aligned with W3C Agent Ontology.
+- Generates JSON-LD and TTL bindings from IDL source.
 - Enables code generation for multiple runtimes (TypeScript, Python, Rust).
 - Integrates with Nix-based build environments and W3C Semantic Agent Communication CG.
 
@@ -32,19 +31,17 @@ interface AgentTask {
 };
 ```
 
-## Positioning: A Bridge Between Semantics and Execution
+## How It Works
 
-While the ontology layer describes **what an agent is** (roles, capabilities, contracts, etc.), AgentIDL defines **how an agent acts and speaks**. It serves as a "Semantic API" that can be compared to:
+AgentIDL defines typed method signatures with annotations that map to
+machine-readable identifiers. It can be compared to:
 
--   **OpenAPI/IDL for the web**, but operating at a semantic level.
--   **gRPC's `.proto` files**, but with support for intents, trust, and grammar.
--   **Solidity's function signatures**, but for agent behavioral protocols.
+-   **OpenAPI/IDL for the web**, but with intent and proof annotations.
+-   **gRPC's `.proto` files**, but with trust and delegation support.
+-   **Solidity's function signatures**, but for agent-to-agent protocols.
 
-Semantically, it combines:
-
-**Ontology (meaning) + Grammar (syntax) + Protocol (execution)**
-
-This creates an agent-level **Application Behavior Interface (ABI)**.
+The compiler reads annotated WebIDL and produces SDK bindings, JSON-LD
+context files, and TTL triples.
 
 ## Conformance Tests
 
@@ -115,11 +112,10 @@ Requires Chrome with built-in AI APIs available.
 
 ### Comparison
 
-| | **Semantic Definition (Ontology)** | **Execution Interface (Interface)** |
+| | **Data Model (RDF/JSON-LD)** | **Interface Definition (IDL)** |
 | :--- | :--- | :--- |
-| **Purpose** | Defines the concepts and their relationships | Defines the methods and their signatures |
+| **Purpose** | Declares types and their identifiers | Declares methods and their signatures |
 | **Format** | .ttl, .jsonld, .shacl | .idl, .jsonld, .ts |
 | **Toolchain** | RDF / Jena / pySHACL | WebIDL2.js / Node / Nix |
 | **Publication**| gh-pages + w3id | npm + gh-pages (docs) |
-| **Boundary** | Semantic correctness, conceptual consistency | Behavioral consistency, semantic mapping |
-| **Coupling** | `ontology v1.0` | `idl v1.0` → imports `ontology v1.0` |
+| **Boundary** | Data validation, schema conformance | Behavioral conformance, binding correctness |
