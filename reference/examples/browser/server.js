@@ -3,7 +3,7 @@ const { WebSocketServer } = require("ws");
 const { AgentRuntime, loadAgentInterface } = require("../../sdk/agent-sdk");
 const { registerHandlers } = require("../../sdk/generated/agenttask.js");
 
-const idlPath = path.join(__dirname, "..", "..", "idl", "agent.idl");
+const idlPath = path.join(__dirname, "..", "..", "..", "idl", "agent.idl");
 const interfaceDef = loadAgentInterface(idlPath);
 const seller = new AgentRuntime({ id: "agent:Seller", interfaceDef });
 

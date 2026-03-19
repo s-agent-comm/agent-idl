@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 const webidl = require("webidl2");
-const { AgentRuntime, loadAgentInterface, createRuntimeTransport } = require("../sdk/agent-sdk");
+const { AgentRuntime, loadAgentInterface, createRuntimeTransport } = require("../reference/sdk/agent-sdk");
 
 const ROOT = __dirname;
 

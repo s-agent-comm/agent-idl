@@ -1,12 +1,12 @@
 import fs from "fs";
 import path from "path";
 import * as webidl from "webidl2";
-import mapper from "../idl/mapper.json";
+import mapper from "../../idl/mapper.json";
 
 type IdlType = webidl.IDLTypeDescription | webidl.IDLTypeDescription[] | string | null;
 
 const DEFAULT_IDL_PATH = path.join("idl", "agent.idl");
-const DEFAULT_OUT_DIR = path.join("sdk", "generated");
+const DEFAULT_OUT_DIR = path.join("reference", "sdk", "generated");
 const DEFAULT_JSONLD_OUT = path.join("idl", "generated", "agent-interface.jsonld");
 const DEFAULT_TTL_OUT = path.join("idl", "generated", "agent-interface.ttl");
 

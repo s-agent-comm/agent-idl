@@ -1,7 +1,7 @@
 {
   "name": "interop-js-runtime",
   "idl": "../../../idl/agent.idl",
-  "generatedModule": "../../../sdk/generated/agenttask.js",
+  "generatedModule": "../../../reference/sdk/generated/agenttask.js",
   "method": "proposeContract",
   "payload": {
     "parties": ["agent:A", "agent:B"],

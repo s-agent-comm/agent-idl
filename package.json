@@ -2,13 +2,13 @@
   "name": "agent-idl",
   "version": "1.0.0",
   "description": "AgentIDL: A bridge between semantic and execution for agents",
-  "main": "dist/sdk/agent-sdk.ts",
+  "main": "dist/reference/sdk/agent-sdk.js",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:conformance": "node agent-idl-tests/agent-idl-test.js",
-    "generate:agenttask": "node dist/compiler/generator.js",
-    "generate:browserai": "node dist/compiler/generator.js --idl idl/browser-ai.idl --jsonld idl/generated/browser-ai.jsonld --ttl idl/generated/browser-ai.ttl"
+    "generate:agenttask": "node dist/reference/compiler/generator.js",
+    "generate:browserai": "node dist/reference/compiler/generator.js --idl idl/browser-ai.idl --jsonld idl/generated/browser-ai.jsonld --ttl idl/generated/browser-ai.ttl"
   },
   "keywords": [
     "agent",
@@ -18,7 +18,7 @@
     "ontology"
   ],
   "author": "",
-  "license": "MIT",
+  "license": "SEE LICENSE FILE",
   "dependencies": {
     "webidl2": "^24.5.0",
     "ws": "^8.18.0"

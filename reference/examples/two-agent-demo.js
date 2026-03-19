@@ -3,7 +3,7 @@ const { loadAgentInterface, AgentRuntime, createRuntimeTransport } = require("..
 const { createClient, registerHandlers } = require("../sdk/generated/agenttask.js");
 
 async function main() {
-  const idlPath = path.join(__dirname, "..", "idl", "agent.idl");
+  const idlPath = path.join(__dirname, "..", "..", "idl", "agent.idl");
   const interfaceDef = loadAgentInterface(idlPath);
 
   const buyer = new AgentRuntime({ id: "agent:Buyer", interfaceDef });

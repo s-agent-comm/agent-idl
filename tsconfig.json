@@ -12,8 +12,8 @@
     "types": ["node"]
   },
   "include": [
-    "compiler/**/*.ts",
-    "sdk/**/*.ts",
+    "reference/compiler/**/*.ts",
+    "reference/sdk/**/*.ts",
     "idl/mapper.json"
   ]
 }

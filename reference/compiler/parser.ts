@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as webidl from "webidl2";
-import mapper from "../idl/mapper.json";
+import mapper from "../../idl/mapper.json";
 
 const src = fs.readFileSync("idl/agent.idl", "utf8");
 const ast = webidl.parse(src);

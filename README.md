@@ -87,7 +87,7 @@ This demo uses a WebSocket transport between a browser client and a Node.js agen
 ```bash
 npm run build
 npm run generate:agenttask
-node examples/browser/server.js
+node reference/examples/browser/server.js
 ```
 
 Serve the repo root (for example):
@@ -96,7 +96,7 @@ Serve the repo root (for example):
 python3 -m http.server 8080
 ```
 
-Open: `http://localhost:8080/examples/browser/`
+Open: `http://localhost:8080/reference/examples/browser/`
 
 ## Browser AI Bridge (Chrome Built-in)
 
@@ -105,11 +105,11 @@ This uses Chrome's built-in AI APIs in a browser tab and bridges results to Node
 ```bash
 npm run build
 npm run generate:browserai
-node examples/browser/bridge-server.js
+node reference/examples/browser/bridge-server.js
 python3 -m http.server 8080
 ```
 
-Open: `http://localhost:8080/examples/browser/bridge.html`  
+Open: `http://localhost:8080/reference/examples/browser/bridge.html`  
 Click **Enable AI** to initialize the built-in API, then watch the Node server log for summaries.
 Requires Chrome with built-in AI APIs available.
 
